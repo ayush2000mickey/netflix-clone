@@ -28,7 +28,7 @@ export default function Login() {
 
   return (
     <>
-      <Card>
+      <Card className="bg-dark">
         <Card.Body>
           <div
             style={{
