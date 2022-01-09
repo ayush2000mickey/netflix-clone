@@ -28,7 +28,7 @@ export default function ForgotPassword() {
 
   return (
     <>
-      <Card className="bg-dark">
+      <Card className="bg-dark text-white">
         <Card.Body>
           <div
             style={{

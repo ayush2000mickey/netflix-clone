@@ -33,7 +33,7 @@ export default function Signup() {
 
   return (
     <>
-      <Card className="bg-dark">
+      <Card className="bg-dark text-white">
         <Card.Body>
           <div
             style={{

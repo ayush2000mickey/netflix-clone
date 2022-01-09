@@ -43,7 +43,7 @@ export default function UpdateProfile() {
 
   return (
     <>
-      <Card className="bg-dark">
+      <Card className="bg-dark text-white">
         <Card.Body>
           <div
             style={{
