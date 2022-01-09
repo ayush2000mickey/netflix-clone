@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import axios from "./axios";
+import axios from "../api/axios";
 
-import requests from "./requests";
+import requests from "../api/requests";
 
 import "./Banner.css";
 
@@ -33,7 +33,9 @@ function Banner() {
       className="banner"
       style={{
         backgroundSize: "cover",
-        backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
+        backgroundImage: `url("https://image.tmdb.org/t/p/original/${
+          movie?.backdrop_path ? movie?.backdrop_path : movie?.poster_path
+        }")`,
         backgroundPosition: "center center",
       }}
     >
@@ -41,10 +43,10 @@ function Banner() {
         <h1 className="banner_title">
           {movie?.title || movie?.name || movie?.original_name}
         </h1>
-        <div className="banner__buttons">
+        {/* <div className="banner__buttons">
           <button className="banner_button">Play</button>
           <button className="banner_button">My List</button>
-        </div>
+        </div> */}
 
         <h1 className="banner_description">
           {truncateString(movie?.overview, 150)}

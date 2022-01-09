@@ -6,20 +6,27 @@
   display: flex;
   justify-content: space-between;
   transition: all 0.5s ease-in;
-
 }
 
 .nav_logo {
-  padding: 1.1rem;
+  margin: 1rem;
+  padding-top: 0.5rem;
   width: 70px;
   object-fit: contain;
+  align-items: center;
 }
 
 .nav_avatar {
-  padding: 1.1rem;
-  width: 30px;
-  object-fit: contain;
+  margin: 1.1rem;
+  /* width: 30px; */
+  /* object-fit: contain; */
+  display: flex;
+  column-gap: 20px;
 }
+
+/* .nav_avatar div {
+  margin-right: 20px;
+} */
 
 .nav_black {
   background-color: #111;

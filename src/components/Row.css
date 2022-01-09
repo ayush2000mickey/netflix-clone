@@ -1,6 +1,7 @@
 .row {
   color: #fff;
   margin-left: 20px;
+  overflow-x: hidden;
 }
 
 .row_posters {
