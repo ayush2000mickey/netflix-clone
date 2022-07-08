@@ -2,20 +2,21 @@ import React, { useState, useEffect } from "react";
 
 import { Button } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import "./Nav.css";
 
 function Nav() {
+  const navigate = useNavigate();
+
   const [show, setShow] = useState(false);
 
   const { currentUser, logout } = useAuth();
-  const history = useHistory();
 
   async function handleLogout() {
     try {
       await logout();
-      history.push("/login");
+      navigate("/auth/login");
     } catch {
       console.log("Failed to log out");
     }
@@ -56,10 +57,10 @@ function Nav() {
         <strong className="btn " variant="outline-primary">
           <Button variant="outline-primary">
             Email:
-            {currentUser.email}
+            {currentUser?.email}
           </Button>
         </strong>
-        <Link to="/update-profile" className="btn">
+        <Link to="/auth/update-profile" className="btn">
           <Button variant="outline-primary">Update Profile</Button>
         </Link>
       </div>
