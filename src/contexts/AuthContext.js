@@ -4,9 +4,9 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
-  sendPasswordResetEmail,
-  updateEmail as upEmail,
-  updatePassword as upPassword,
+  // sendPasswordResetEmail,
+  // updateEmail as upEmail,
+  // updatePassword as upPassword,
   onAuthStateChanged,
 } from "firebase/auth";
 
@@ -32,17 +32,17 @@ export function AuthProvider({ children }) {
     return signOut(auth);
   }
 
-  function resetPassword(email) {
-    return sendPasswordResetEmail(auth, email);
-  }
+  // function resetPassword(email) {
+  //   return sendPasswordResetEmail(auth, email);
+  // }
 
-  function updateEmail(email) {
-    return upEmail(currentUser, email);
-  }
+  // function updateEmail(email) {
+  //   return upEmail(currentUser, email);
+  // }
 
-  function updatePassword(password) {
-    return upPassword(currentUser, password);
-  }
+  // function updatePassword(password) {
+  //   return upPassword(currentUser, password);
+  // }
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -58,9 +58,9 @@ export function AuthProvider({ children }) {
     login,
     signup,
     logout,
-    resetPassword,
-    updateEmail,
-    updatePassword,
+    // resetPassword,
+    // updateEmail,
+    // updatePassword,
   };
 
   return (

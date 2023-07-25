@@ -49,7 +49,7 @@ function Nav() {
         alt="Netflix Logo"
       /> */}
       <div className="nav_avatar">
-        <div className="btn w-30 ">
+        <div className="btn w-30">
           <Button variant="outline-primary" onClick={handleLogout}>
             Log Out
           </Button>
@@ -60,9 +60,9 @@ function Nav() {
             {currentUser?.email}
           </Button>
         </strong>
-        <Link to="/auth/update-profile" className="btn">
+        {/* <Link to="/auth/update-profile" className="btn">
           <Button variant="outline-primary">Update Profile</Button>
-        </Link>
+        </Link> */}
       </div>
     </div>
   );
