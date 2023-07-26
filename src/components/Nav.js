@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from "react";
-
-import { Button } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import {
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  MenuDivider,
+} from "@chakra-ui/react";
 
 import "./Nav.css";
+import { HamburgerIcon } from "@chakra-ui/icons";
 
 function Nav() {
   const navigate = useNavigate();
@@ -29,40 +35,45 @@ function Nav() {
       } else setShow(false);
     });
     return () => {
-      window.removeEventListener("scroll");
+      window.removeEventListener("scroll", () => {
+        if (window.scrollY > 100) {
+          setShow(true);
+        } else setShow(false);
+      });
     };
   }, []);
 
   return (
-    <div className={`nav ${show && "nav_black"}`}>
-      <div>
+    <div className={`nav ${show ? "nav_black" : ""}`}>
+      <div className="nav_logo">
         <img
-          className="nav_logo"
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/250px-Netflix_2015_logo.svg.png"
           alt="Netflix Logo"
         />
       </div>
-
-      {/* <img
-        className="nav_avatar"
-        src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/366be133850498.56ba69ac36858.png"
-        alt="Netflix Logo"
-      /> */}
       <div className="nav_avatar">
-        <div className="btn w-30">
-          <Button variant="outline-primary" onClick={handleLogout}>
-            Log Out
-          </Button>
-        </div>
-        <strong className="btn " variant="outline-primary">
-          <Button variant="outline-primary">
-            Email:
-            {currentUser?.email}
-          </Button>
-        </strong>
-        {/* <Link to="/auth/update-profile" className="btn">
-          <Button variant="outline-primary">Update Profile</Button>
-        </Link> */}
+        <Menu>
+          <MenuButton
+            px={4}
+            py={2}
+            transition="all 0.2s"
+            borderRadius="md"
+            borderWidth="1px"
+            _hover={{ bg: "gray.400" }}
+            _expanded={{ bg: "blue.400" }}
+            _focus={{ boxShadow: "outline" }}
+          >
+            <HamburgerIcon />
+          </MenuButton>
+          <MenuList>
+            <MenuItem>
+              Email:
+              {currentUser?.email}
+            </MenuItem>
+            <MenuDivider />
+            <MenuItem onClick={handleLogout}>Log Out</MenuItem>
+          </MenuList>
+        </Menu>
       </div>
     </div>
   );
